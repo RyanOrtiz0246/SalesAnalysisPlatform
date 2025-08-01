@@ -1,0 +1,35 @@
+﻿@model SalesAnalysisPlatform.Web.ViewModels.CustomerViewModel
+
+@{
+    ViewData["Title"] = "Delete Customer";
+}
+
+<div class="card shadow-sm border-0 mt-4">
+    <div class="card-header bg-danger text-white">
+        <h4 class="mb-0">Confirm Deletion</h4>
+    </div>
+    
+    <div class="card-body">
+        <p class="mb-3">Are you sure you want to delete the following customer?</p>
+
+        <dl class="row">
+            <dt class="col-sm-3">Name</dt>
+            <dd class="col-sm-9">@Model.Name</dd>
+
+            <dt class="col-sm-3">Email</dt>
+            <dd class="col-sm-9">@Model.Email</dd>
+
+            <dt class="col-sm-3">Phone</dt>
+            <dd class="col-sm-9">@Model.Phone</dd>
+
+            <dt class="col-sm-3">Address</dt>
+            <dd class="col-sm-9">@Model.Address</dd>
+        </dl>
+        
+        <form asp-action="Delete" method="post">
+            <input type="hidden" asp-for="Id" />
+            <button type="submit" class="btn btn-danger">Delete</button>
+            <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+        </form>
+    </div>
+</div>
